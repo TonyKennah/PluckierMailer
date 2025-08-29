@@ -1,3 +1,5 @@
+[![Build & Test Status](https://github.com/TonyKennah/PluckierMailer/actions/workflows/maven.yml/badge.svg)](https://github.com/TonyKennah/PluckierMailer/actions/workflows/maven.yml)
+
 # PluckierMailer
 A library which allows emails to be sent
 
