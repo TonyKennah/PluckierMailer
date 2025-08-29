@@ -11,30 +11,41 @@ import jakarta.mail.internet.MimeMessage;
 
 import java.util.Properties;
 
-public class Mailer extends Thread {
+public class Mailer implements Runnable {
 
-	private final Properties mailerConfig = new Properties();
+	private Properties mailerConfig = new Properties();
 	private final String[] emailList;
 	private final String subject;
 	private final String body;
 
-	public Mailer(String[] emailList, String subject, String body) {
+	public Mailer(String[] emailList, String subject, String body) throws java.io.IOException {
 		this.emailList = emailList;
 		this.subject = subject;
 		this.body = body;
 
+		// Load configuration internally from the classpath
+		Properties config = new Properties();
 		try (java.io.InputStream input = getClass().getClassLoader().getResourceAsStream("mailer.properties")) {
 			if (input == null) {
-				System.err.println("ERROR: mailer.properties not found on classpath.");
-				return;
+				throw new java.io.IOException("mailer.properties not found on classpath.");
 			}
-			this.mailerConfig.load(input);
-		} catch (java.io.IOException e) {
-			e.printStackTrace();
+			config.load(input);
 		}
+		this.mailerConfig = config;
 	}
 
-	public void run() // throws MessagingException
+	/**
+	 * Constructor for testing purposes, allowing dependency injection of configuration.
+	 */
+	Mailer(Properties mailerConfig, String[] emailList, String subject, String body) {
+		this.mailerConfig = mailerConfig;
+		this.emailList = emailList;
+		this.subject = subject;
+		this.body = body;
+	}
+
+	@Override
+	public void run()
 	{
 		boolean debug = false;
 		String smtpHost = mailerConfig.getProperty("mail.smtp.host");

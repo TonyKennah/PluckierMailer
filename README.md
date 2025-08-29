@@ -29,7 +29,7 @@ public class PasswordResetService {
         String[] recipients = { email };
 
         // Create and start the Mailer thread. It will load its own configuration.
-        new Mailer(recipients, subject, body).start();
+        new Thread(new Mailer(recipients, subject, body)).start();
     }
 }
 ```
