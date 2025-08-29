@@ -25,9 +25,9 @@ public class Mailer implements Runnable {
 
 		// Load configuration internally from the classpath
 		Properties config = new Properties();
-		try (java.io.InputStream input = getClass().getClassLoader().getResourceAsStream("mailer.properties")) {
+		try (java.io.InputStream input = getClass().getClassLoader().getResourceAsStream("db.properties")) {
 			if (input == null) {
-				throw new java.io.IOException("mailer.properties not found on classpath.");
+				throw new java.io.IOException("db.properties not found on classpath.");
 			}
 			config.load(input);
 		}
