@@ -1,6 +1,15 @@
 # PluckierMailer
 A library which allows emails to be sent
 
+### Needs
+db.properties file
+```properties
+mail.smtp.host=HOST
+mail.smtp.port=NUMBER
+mail.smtp.user=USER
+mail.smtp.password=PASSWORD
+mail.from.address=INFO@WHATEVER.COM
+```
 
 Example
 
