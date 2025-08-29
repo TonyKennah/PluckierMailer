@@ -73,4 +73,18 @@
       </plugin>
     </plugins>
   </reporting>
+
+ <distributionManagement>
+        <repository>
+            <id>github</id>
+            <name>GitHub Tony Kennah Apache Maven Packages</name>
+            <url>https://maven.pkg.github.com/TonyKennah/pluckiermailer</url>
+        </repository>
+        <snapshotRepository>
+            <id>github</id>
+            <name>GitHub Tony Kennah Apache Maven Packages</name>
+            <url>https://maven.pkg.github.com/TonyKennah/pluckiermailer</url>
+        </snapshotRepository>
+    </distributionManagement>
+
 </project>
