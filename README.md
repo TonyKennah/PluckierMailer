@@ -44,3 +44,11 @@ public class PasswordResetService {
     }
 }
 ```
+
+```xml
+<dependency>
+  <groupId>co.uk.pluckier.mailer</groupId>
+  <artifactId>mailer</artifactId>
+  <version>1.0-SNAPSHOT</version>
+</dependency>
+```
