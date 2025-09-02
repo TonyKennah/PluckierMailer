@@ -1,8 +1,10 @@
-package co.uk.pluckier.mailer;
+package uk.co.pluckier.mailer;
 
 import jakarta.mail.Message;
 import jakarta.mail.MessagingException;
 import jakarta.mail.Transport;
+import uk.co.pluckier.mailer.Mailer;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;

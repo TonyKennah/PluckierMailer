@@ -1,4 +1,4 @@
-package co.uk.pluckier.mailer;
+package uk.co.pluckier.mailer;
 
 import jakarta.mail.Authenticator;
 import jakarta.mail.Message;
